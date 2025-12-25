@@ -1,18 +1,13 @@
 <?php
-$servername = "localhost";   // Usually localhost
-$username = "root";          // Your DB username
-$password = "Vibin@#123";              // Your DB password
-$dbname = "javapro";     // Your database name
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+$username = $_POST['username'];
+$password = $_POST['password'];
+echo $username;
+echo $password;
+$conn = new mysqli("localhost","root","Vibin@#123","javapro");
+if($conn->connect_error){
+    die("connection Failed !");
 }
-echo "Connected successfully";
+echo("Connection Succesfull !");
 
-// Close connection
-mysqli_close($conn);
 ?>

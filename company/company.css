@@ -9,3 +9,25 @@ nav{
     font-size: larger;
 
 }
+
+#img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#img img{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+#search{
+    align-items: center;
+}
+
+#search input{
+    width: 50%;
+}

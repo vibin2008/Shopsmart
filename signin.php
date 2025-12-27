@@ -23,9 +23,10 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $conn = new mysqli("localhost","root","Vibin@#123","javapro");
+        $conn = new mysqli("localhost","root","Vibin@#123","shopsmart");
         if($conn -> connect_error){
             echo "<script>alert('a Error has occured Please Retry !')</script>";
+            echo "<script> window.location.href = 'signin.html'</script>";
         }
         $sql = "select * from signin where username='$username';";
         $result = $conn -> query($sql);

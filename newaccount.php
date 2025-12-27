@@ -16,12 +16,18 @@
                 $sql = "select * from signin where username='$username';";
                 $result = $conn -> query($sql);
                 if($result -> num_rows > 0){
+                    $conn->close();
                     echo "<script>alert('Username Unavailable !')</script>";
                 }
                 else{
-                    $sql = "insert into signin values($username,$password);";
-                    $result = $conn -> query($sql);
-                    echo "<script>Account Created Successfully !</script>";
+                    $sql = "insert into signin (username,password) VALUES (?, ?)";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("ss", $username,$password);
+                    $stmt->execute();
+                    $stmt->close();
+                    $conn->close();
+                    echo "<script>alert('Account creation Successfull !')</script>";
+                    echo "<script>window.location.href = 'signin.html'</script>";
                 }
             }
 

@@ -32,9 +32,11 @@
         if($result -> num_rows >0){
             $row = $result->fetch_assoc();
             if($username==$row['username'] && $password==$row['password']){
+                $conn->close();
                 echo "<script>alert('Signed in successfully!')</script>";
             }
             else{
+                $conn->close();
                 echo "<script>alert('Username or password is incorrect!')</script>";
                 echo "<script>window.location.href = 'signin.html'</script>";
             }

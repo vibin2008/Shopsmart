@@ -35,6 +35,7 @@
             if($username==$row['username'] && $password==$row['password']){
                 $conn->close();
                 echo "<script>alert('Signed in successfully!')</script>";
+                echo "<script>window.location.href = 'company/company.php'</script>"
             }
             else{
                 $conn->close();

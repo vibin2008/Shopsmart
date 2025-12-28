@@ -2,6 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
     logo(img);
 });
 
+//if the mouse clicks outside the search bos the values clears
+document.addEventListener("click", function(event) {
+    // If the click is NOT inside the input
+    if (!inp.contains(event.target)) {
+        clear();
+    }
+});
+
+
 function logo(img){
     // adding base url and the image base names
     const url = "https://raw.githubusercontent.com/vibin2008/Shopsmart/main/company/logo/";
@@ -27,7 +36,7 @@ function logo(img){
 
 function find(){
     var txt = document.getElementById('inp').value;
-    console.log(txt);
+    const result = document.getElementById('result');
     fetch("search.php", {
         method: "POST",
         headers: {
@@ -37,6 +46,20 @@ function find(){
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        result.innerHTML = '';
+        for(let i=0;i<data.length;i++){
+            let btn = document.createElement('a');
+            btn.textContent = data[i];
+
+            let br = document.createElement('br');
+
+            result.append(btn);
+            result.append(br);
+        }
     });
+}
+
+function clear(){
+    const result = document.getElementById('result');
+    result.innerHTML = '';
 }

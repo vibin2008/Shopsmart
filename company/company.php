@@ -28,9 +28,16 @@
         </nav>
         <br><br>
         
+        <center>
         <div id=search>
-            <input type="text" oninput="find()" id='inp'>
+            <input type="text" oninput="find()" onfocus='find()' id='inp' placeholder='Search'>
+            <div>
+                <ul id='result'>
+
+                </ul>
+            </div>
         </div>
+        </center>
 
         <br><br>
 
